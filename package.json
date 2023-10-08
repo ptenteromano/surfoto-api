@@ -1,0 +1,15 @@
+{
+  "name": "@surfoto/types",
+  "version": "1.0.0",
+  "description": "types found within the surfoto ecosystem",
+  "author": "Philip Tenteromano",
+  "license": "ISC",
+  "types": "dist/types.d.ts",
+  "scripts": {
+    "build": "tsc"
+  },
+  "devDependencies": {
+    "typescript": "^5.2.2"
+  },
+  "files": ["dist"]
+}
