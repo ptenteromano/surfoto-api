@@ -13,6 +13,11 @@ export type PhotoPresenter = {
   location: LocationPresenter;
 };
 
+// Used in profile photos
+export type PhotosByLocation = {
+  [key: string]: Photo[];
+};
+
 export type PhotosIndex =
   | {
       total: number;
@@ -23,9 +28,9 @@ export type PhotosIndex =
 
 export type PhotosNearby = PhotosIndex;
 export type PhotoCreate = PhotoPresenter | ErrorResponse;
-export type BulkPhotosCreate = { message: string } | ErrorResponse;
+export type PhotosBulkCreate = { message: string } | ErrorResponse;
 export type PhotoShow = PhotoPresenter | ErrorResponse;
-export type UserPhotos =
+export type PhotosUserPhotos =
   | { user: string; photos: PhotoPresenter[] }
   | ErrorResponse;
 export type PhotoEdit = { photo: string } | ErrorResponse; // TODO: this should be a photo

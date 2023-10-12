@@ -1,8 +1,8 @@
-import { PhotoPresenter } from "./photo";
+import { PhotoPresenter, PhotosByLocation } from "./photo";
 import { ErrorResponse } from "./utils";
 
 export type UserPhotos = {
-  photos: PhotoPresenter[];
+  photos: PhotosByLocation;
   totalOwned: number;
   numSold: number;
   allPhotoUuids: string[];
