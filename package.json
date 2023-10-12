@@ -4,9 +4,9 @@
   "description": "types found within the surfoto ecosystem",
   "author": "Philip Tenteromano",
   "license": "ISC",
-  "types": "dist/types.d.ts",
+  "types": "dist/index.d.ts",
   "scripts": {
-    "build": "tsc"
+    "build": "rm -rf dist; yarn unlink @types/surfoto; yarn run tsc; yarn link @types/surfoto"
   },
   "devDependencies": {
     "typescript": "^5.2.2"
