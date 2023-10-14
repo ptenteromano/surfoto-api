@@ -7,7 +7,7 @@
     "strict": true,
     "baseUrl": "./",
     "paths": {
-      "@surfoto/api/types": ["./dist/types/index.d.ts"]
+      "@ptenteromano/surfoto-api/types": ["./dist/types/index.d.ts"]
     }
   },
   "include": ["src/**/*.ts"],
