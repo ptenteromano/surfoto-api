@@ -4,8 +4,14 @@
     "outDir": "./dist",
     "module": "commonjs",
     "target": "ES6",
-    "strict": true
+    "strict": true,
+    "baseUrl": "./",
+    "paths": {
+      "@surfoto/api/types": ["./dist/types/index.d.ts"]
+    }
   },
   "include": ["src/**/*.ts"],
-  "exclude": ["node_modules"]
+  "exclude": ["node_modules"],
+  "types": ["node", "chai"],
+  "typeRoots": ["./node_modules/@types"]
 }
