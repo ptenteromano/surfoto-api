@@ -1,6 +1,6 @@
 {
   "name": "@ptenteromano/surfoto-api",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Front end methods for the API to Surfoto",
   "author": "Philip Tenteromano",
   "license": "ISC",
@@ -26,8 +26,7 @@
     "typescript": "^5.2.2"
   },
   "files": [
-    "index.d.ts",
-    "index.js"
+    "dist"
   ],
   "publishConfig": {
     "access": "public",
