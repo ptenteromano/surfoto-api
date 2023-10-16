@@ -6,6 +6,10 @@
   "license": "ISC",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ptenteromano/surfoto-api"
+  },
   "scripts": {
     "build": "rm -rf dist; yarn unlink @ptenteromano/surfoto-api && yarn run tsc && yarn link @ptenteromano/surfoto-api",
     "test": "ts-mocha",
