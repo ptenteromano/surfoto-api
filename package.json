@@ -1,6 +1,6 @@
 {
   "name": "@ptenteromano/surfoto-api",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "Front end methods for the API to Surfoto",
   "author": "Philip Tenteromano",
   "license": "ISC",
@@ -13,7 +13,8 @@
   "scripts": {
     "build": "rm -rf dist; yarn unlink @ptenteromano/surfoto-api && yarn run tsc && yarn link @ptenteromano/surfoto-api",
     "test": "ts-mocha",
-    "testall": "yarn test tests/*.test.ts"
+    "testall": "yarn test tests/*.test.ts",
+    "publish": "yarn run build && yarn publish"
   },
   "dependencies": {
     "node-fetch": "^2.6.1"
