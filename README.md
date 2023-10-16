@@ -6,3 +6,6 @@ Node js api for surfoto app, that connects to the wavebreak server
 `yarn add @ptenteromano/surfoto-api`
 or
 `npm install @ptenteromano/surfoto-api`
+
+## TODO
+- make sure responses make sense
