@@ -147,7 +147,7 @@ describe("validPrice", () => {
     });
 
     it("returns false", () => {
-      expect(V.validPrice("adada")).to.be.false;
+      expect(V.validPrice("foo")).to.be.false;
     });
   });
 });
@@ -222,7 +222,7 @@ describe("usernameValidationMsg", () => {
   });
 
   describe("usernames too long", () => {
-    it("returns 'usernames must be at least 4 characters long'", () => {
+    it("returns 'usernames cannot be longer than 25 characters'", () => {
       expect(V.usernameValidationMsg("a".repeat(26))).to.equal(
         "usernames cannot be longer than 25 characters"
       );

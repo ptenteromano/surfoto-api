@@ -3,7 +3,7 @@ import * as T from "./types";
 import * as H from "./headers";
 
 export const WAVEBREAK_URL =
-  process.env.WAVEBREAK_URL || "http://localhost:4000";
+  (process ? process.env.WAVEBREAK_URL : null) || "http://localhost:4000";
 
 // Grab token from headers
 export const getTokenFromResp = (resp: Response): string | undefined => {
@@ -87,7 +87,7 @@ export async function confirmAccount(confToken: string): Promise<string> {
   }
 }
 
-// Request a passsword reset
+// Request a password reset
 export async function requestResetPassword(email: string): Promise<string> {
   try {
     const resp = await fetch(
