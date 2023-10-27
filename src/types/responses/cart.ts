@@ -2,7 +2,7 @@ import { PhotoPresenter } from "./photo";
 import { ErrorResponse } from "./utils";
 import { PaymentIntent } from "./payments";
 
-export type CartBasics = { photos: PhotoPresenter[]; total: string };
+export type CartBasics = { photos: PhotoPresenter[]; total: number, fee: number };
 
 export type CartIndex = CartBasics | ErrorResponse;
 export type CartWithPaymentIntent = (CartIndex & PaymentIntent) | ErrorResponse;

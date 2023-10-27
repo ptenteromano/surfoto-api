@@ -5,7 +5,7 @@ import * as H from "./headers";
 export const WAVEBREAK_URL =
   typeof process === "undefined"
     ? "http://localhost:4000"
-    : process.env.WAVEBREAK_URL;
+    : (process.env.WAVEBREAK_URL || "http://localhost:4000");
 
 // Grab token from headers
 export const getTokenFromResp = (resp: Response): string | undefined => {
