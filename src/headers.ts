@@ -1,5 +1,10 @@
 import { type RequestInit } from "node-fetch";
 
+const ORIGIN =
+  typeof process === "undefined"
+    ? "http://localhost:3000"
+    : process.env.ORIGIN || "http://localhost:3000";
+
 // GET with no token
 export const getUnauth = () => {
   return {
@@ -18,6 +23,7 @@ export const getJson = (token: string): RequestInit => {
       Accept: "application/json",
       "Content-Type": "application/json",
       Authorization: `Bearer ${token}`,
+      origin: ORIGIN,
     },
   };
 };
@@ -29,6 +35,7 @@ export const postNoTok = (body: any) => {
     headers: {
       Accept: "application/json",
       "Content-Type": "application/json",
+      origin: ORIGIN,
     },
     body: JSON.stringify(body),
   };
@@ -42,18 +49,23 @@ export const postJson = (token: string, body: any) => {
       Accept: "application/json",
       "Content-Type": "application/json",
       Authorization: `Bearer ${token}`,
+      origin: ORIGIN,
     },
     body: JSON.stringify(body),
   };
 };
 
 // POST with file / media. must have formData
-export const postFile = (token: string | null, formData: FormData): RequestInit => {
+export const postFile = (
+  token: string | null,
+  formData: FormData
+): RequestInit => {
   return {
     method: "post",
     headers: {
       // "Content-Type": "multipart/form-data",
       Authorization: `Bearer ${token}`,
+      origin: ORIGIN,
     },
     body: JSON.stringify(formData),
   };
@@ -67,6 +79,7 @@ export const deleteJson = (token: string, body: Object) => {
       Accept: "application/json",
       "Content-Type": "application/json",
       Authorization: `Bearer ${token}`,
+      origin: ORIGIN,
     },
     body: JSON.stringify(body),
   };
@@ -91,6 +104,7 @@ export const patchJson = (token: string, body: Object) => {
       Accept: "application/json",
       "Content-Type": "application/json",
       Authorization: `Bearer ${token}`,
+      origin: ORIGIN,
     },
     body: JSON.stringify(body),
   };
