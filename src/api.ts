@@ -5,7 +5,7 @@ import * as H from "./headers";
 export const WAVEBREAK_URL =
   typeof process === "undefined"
     ? "http://localhost:4000"
-    : (process.env.WAVEBREAK_URL || "http://localhost:4000");
+    : process.env.WAVEBREAK_URL || "http://localhost:4000";
 
 // Grab token from headers
 export const getTokenFromResp = (resp: Response): string | undefined => {
@@ -293,6 +293,82 @@ export const fetchFullProfile = async (
 ): Promise<T.ProfileShow> => {
   try {
     const resp = await fetch(`${WAVEBREAK_URL}/profile`, H.getJson(token));
+
+    return await resp.json();
+  } catch (error: any) {
+    return { error: error.message };
+  }
+};
+
+export const dumperIndex = async (token: string): Promise<T.DumperIndex> => {
+  try {
+    const resp = await fetch(`${WAVEBREAK_URL}/dumper`, H.getJson(token));
+
+    return await resp.json();
+  } catch (error: any) {
+    return { error: error.message };
+  }
+};
+
+export const dumperUsers = async (token: string): Promise<T.DumperUsers> => {
+  try {
+    const resp = await fetch(`${WAVEBREAK_URL}/dumper/users`, H.getJson(token));
+
+    return await resp.json();
+  } catch (error: any) {
+    return { error: error.message };
+  }
+};
+
+export const dumperPhotos = async (token: string): Promise<T.DumperPhotos> => {
+  try {
+    const resp = await fetch(
+      `${WAVEBREAK_URL}/dumper/photos`,
+      H.getJson(token)
+    );
+
+    return await resp.json();
+  } catch (error: any) {
+    return { error: error.message };
+  }
+};
+
+export const dumperOrders = async (token: string): Promise<T.DumperOrders> => {
+  try {
+    const resp = await fetch(
+      `${WAVEBREAK_URL}/dumper/orders`,
+      H.getJson(token)
+    );
+
+    return await resp.json();
+  } catch (error: any) {
+    return { error: error.message };
+  }
+};
+
+export const dumperLocations = async (
+  token: string
+): Promise<T.DumperLocations> => {
+  try {
+    const resp = await fetch(
+      `${WAVEBREAK_URL}/dumper/locations`,
+      H.getJson(token)
+    );
+
+    return await resp.json();
+  } catch (error: any) {
+    return { error: error.message };
+  }
+};
+
+export const dumperCartItems = async (
+  token: string
+): Promise<T.DumperCartItems> => {
+  try {
+    const resp = await fetch(
+      `${WAVEBREAK_URL}/dumper/cart_items`,
+      H.getJson(token)
+    );
 
     return await resp.json();
   } catch (error: any) {

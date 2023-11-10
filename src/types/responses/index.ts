@@ -1,5 +1,6 @@
 export * from "./auth";
 export * from "./cart";
+export * from "./dumper";
 export * from "./location";
 export * from "./order";
 export * from "./payments";
