@@ -2,7 +2,6 @@ import { expect } from "chai";
 import * as api from "../src/api";
 import * as nock from "nock";
 
-
 // Some of these mocks do not necessarily return their expected type structures.
 const root = nock(api.WAVEBREAK_URL);
 
@@ -629,6 +628,180 @@ describe("fetchFullProfile", () => {
     it("should return an error if the response has an error", async () => {
       root.get("/profile").reply(401, { error: "Unauthorized" });
       const resp = await api.fetchFullProfile("testToken");
+
+      expect(resp).to.eql({ error: "Unauthorized" });
+    });
+  });
+});
+
+describe("dumperIndex", () => {
+  describe("success", () => {
+    it("should return the dumper index", async () => {
+      root.get("/dumper").reply(200, { dumper: "testDumper" });
+      const resp = await api.dumperIndex("testToken");
+
+      expect(resp).to.eql({ dumper: "testDumper" });
+    });
+  });
+
+  describe("error paths", () => {
+    it("should return an error if the fetch fails", async () => {
+      root.get("/dumper").replyWithError("Failed to fetch");
+      const resp = await api.dumperIndex("testToken");
+
+      expect(resp).to.eql({
+        error: `request to ${api.WAVEBREAK_URL}/dumper failed, reason: Failed to fetch`,
+      });
+    });
+
+    it("should return an error if the response has an error", async () => {
+      root.get("/dumper").reply(401, { error: "Unauthorized" });
+      const resp = await api.dumperIndex("testToken");
+
+      expect(resp).to.eql({ error: "Unauthorized" });
+    });
+  });
+});
+
+describe("dumperUsers", () => {
+  describe("success", () => {
+    it("should return the dumper users", async () => {
+      root.get("/dumper/users").reply(200, { users: "testUsers" });
+      const resp = await api.dumperUsers("testToken");
+
+      expect(resp).to.eql({ users: "testUsers" });
+    });
+  });
+
+  describe("error paths", () => {
+    it("should return an error if the fetch fails", async () => {
+      root.get("/dumper/users").replyWithError("Failed to fetch");
+      const resp = await api.dumperUsers("testToken");
+
+      expect(resp).to.eql({
+        error: `request to ${api.WAVEBREAK_URL}/dumper/users failed, reason: Failed to fetch`,
+      });
+    });
+
+    it("should return an error if the response has an error", async () => {
+      root.get("/dumper/users").reply(401, { error: "Unauthorized" });
+      const resp = await api.dumperUsers("testToken");
+
+      expect(resp).to.eql({ error: "Unauthorized" });
+    });
+  });
+});
+
+describe("dumperPhotos", () => {
+  describe("success", () => {
+    it("should return the dumper photos", async () => {
+      root.get("/dumper/photos").reply(200, { photos: "testPhotos" });
+      const resp = await api.dumperPhotos("testToken");
+
+      expect(resp).to.eql({ photos: "testPhotos" });
+    });
+  });
+
+  describe("error paths", () => {
+    it("should return an error if the fetch fails", async () => {
+      root.get("/dumper/photos").replyWithError("Failed to fetch");
+      const resp = await api.dumperPhotos("testToken");
+
+      expect(resp).to.eql({
+        error: `request to ${api.WAVEBREAK_URL}/dumper/photos failed, reason: Failed to fetch`,
+      });
+    });
+
+    it("should return an error if the response has an error", async () => {
+      root.get("/dumper/photos").reply(401, { error: "Unauthorized" });
+      const resp = await api.dumperPhotos("testToken");
+
+      expect(resp).to.eql({ error: "Unauthorized" });
+    });
+  });
+});
+
+describe("dumperOrders", () => {
+  describe("success", () => {
+    it("should return the dumper orders", async () => {
+      root.get("/dumper/orders").reply(200, { orders: "testOrders" });
+      const resp = await api.dumperOrders("testToken");
+
+      expect(resp).to.eql({ orders: "testOrders" });
+    });
+  });
+
+  describe("error paths", () => {
+    it("should return an error if the fetch fails", async () => {
+      root.get("/dumper/orders").replyWithError("Failed to fetch");
+      const resp = await api.dumperOrders("testToken");
+
+      expect(resp).to.eql({
+        error: `request to ${api.WAVEBREAK_URL}/dumper/orders failed, reason: Failed to fetch`,
+      });
+    });
+
+    it("should return an error if the response has an error", async () => {
+      root.get("/dumper/orders").reply(401, { error: "Unauthorized" });
+      const resp = await api.dumperOrders("testToken");
+
+      expect(resp).to.eql({ error: "Unauthorized" });
+    });
+  });
+});
+
+describe("dumperLocations", () => {
+  describe("success", () => {
+    it("should return the dumper locations", async () => {
+      root.get("/dumper/locations").reply(200, { locations: "testLocations" });
+      const resp = await api.dumperLocations("testToken");
+
+      expect(resp).to.eql({ locations: "testLocations" });
+    });
+  });
+
+  describe("error paths", () => {
+    it("should return an error if the fetch fails", async () => {
+      root.get("/dumper/locations").replyWithError("Failed to fetch");
+      const resp = await api.dumperLocations("testToken");
+
+      expect(resp).to.eql({
+        error: `request to ${api.WAVEBREAK_URL}/dumper/locations failed, reason: Failed to fetch`,
+      });
+    });
+
+    it("should return an error if the response has an error", async () => {
+      root.get("/dumper/locations").reply(401, { error: "Unauthorized" });
+      const resp = await api.dumperLocations("testToken");
+
+      expect(resp).to.eql({ error: "Unauthorized" });
+    });
+  });
+});
+
+describe("dumperCartItems", () => {
+  describe("success", () => {
+    it("should return the dumper cart items", async () => {
+      root.get("/dumper/cart_items").reply(200, { cart_items: "testCartItems" });
+      const resp = await api.dumperCartItems("testToken");
+
+      expect(resp).to.eql({ cart_items: "testCartItems" });
+    });
+  });
+
+  describe("error paths", () => {
+    it("should return an error if the fetch fails", async () => {
+      root.get("/dumper/cart_items").replyWithError("Failed to fetch");
+      const resp = await api.dumperCartItems("testToken");
+
+      expect(resp).to.eql({
+        error: `request to ${api.WAVEBREAK_URL}/dumper/cart_items failed, reason: Failed to fetch`,
+      });
+    });
+
+    it("should return an error if the response has an error", async () => {
+      root.get("/dumper/cart_items").reply(401, { error: "Unauthorized" });
+      const resp = await api.dumperCartItems("testToken");
 
       expect(resp).to.eql({ error: "Unauthorized" });
     });

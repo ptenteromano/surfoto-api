@@ -12,10 +12,15 @@ export type OrderPresenter = {
 
 export type OrderResponse = {
   user: string;
-  orders: OrderPresenter[];
+  order: OrderPresenter;
 };
 
-export type OrderIndex = OrderResponse | ErrorResponse;
+export type OrderIndex =
+  | {
+      user: string;
+      orders: OrderPresenter[];
+    }
+  | ErrorResponse;
 export type OrderCreate = OrderResponse | ErrorResponse;
 export type OrderShow = OrderResponse | ErrorResponse;
 

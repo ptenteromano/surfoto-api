@@ -23,6 +23,7 @@ describe("getJson", () => {
         Accept: "application/json",
         "Content-Type": "application/json",
         Authorization: `Bearer ${token}`,
+        origin: "http://localhost:3000",
       },
     });
   });
@@ -35,6 +36,7 @@ describe("postNoTok", () => {
       headers: {
         Accept: "application/json",
         "Content-Type": "application/json",
+        origin: "http://localhost:3000",
       },
       body: JSON.stringify({}),
     });
@@ -49,6 +51,7 @@ describe("postJson", () => {
         Accept: "application/json",
         "Content-Type": "application/json",
         Authorization: `Bearer ${token}`,
+        origin: "http://localhost:3000",
       },
       body: JSON.stringify({}),
     });
@@ -63,6 +66,7 @@ describe("postFile", () => {
       method: "post",
       headers: {
         Authorization: `Bearer ${token}`,
+        origin: "http://localhost:3000",
       },
       body: JSON.stringify(formData),
     });
@@ -77,6 +81,7 @@ describe("deleteJson", () => {
         Accept: "application/json",
         "Content-Type": "application/json",
         Authorization: `Bearer ${token}`,
+        origin: "http://localhost:3000",
       },
       body: JSON.stringify({}),
     });
@@ -104,6 +109,7 @@ describe("patchJson", () => {
         Accept: "application/json",
         "Content-Type": "application/json",
         Authorization: `Bearer ${token}`,
+        origin: "http://localhost:3000",
       },
       body: JSON.stringify({}),
     });
