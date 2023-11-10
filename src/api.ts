@@ -230,7 +230,7 @@ export async function addCartItem(
 export async function updateCartItem(
   token: string,
   photo_uuid: string,
-  status: string
+  status: "pending" | "purchased" | "removed"
 ): Promise<T.CartUpdate> {
   try {
     const resp = await fetch(
