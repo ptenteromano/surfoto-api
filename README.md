@@ -9,3 +9,6 @@ or
 
 ## TODO
 - make sure responses make sense
+
+## Compiling
+- `yarn build` or `npm run build`
