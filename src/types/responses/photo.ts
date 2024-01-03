@@ -4,6 +4,7 @@ import { ErrorResponse } from "./utils";
 export type PhotoPresenter = {
   pid: string;
   owner: string;
+  username: string;
   url: string;
   imageSize: number;
   price: number;
