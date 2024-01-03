@@ -18,6 +18,16 @@ export type ProfilePresenter = {
   balance: number;
 } & UserPhotos;
 
+export type PublicProfile = {
+  user: string;
+  username: string;
+  avatarUrl: string | null;
+  location: string | null;
+  photos: PhotosByLocation[];
+  totalPhotos: number;
+  totalLocations: number;
+};
+
 export type ProfileShow = ProfilePresenter | ErrorResponse;
 export type ProfilePhotos = ({ user: string } & UserPhotos) | ErrorResponse;
 export type ProfilePurchasedPhotos =
@@ -30,5 +40,7 @@ export type ProfilePurchasedPhotos =
 export type ProfileBalance =
   | { user: string; balance: number; numSold: number }
   | ErrorResponse;
+
+export type ProfileShowPublic = PublicProfile | ErrorResponse;
 
 export type Profile = ProfilePresenter;

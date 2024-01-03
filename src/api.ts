@@ -300,6 +300,22 @@ export const fetchFullProfile = async (
   }
 };
 
+export const publicProfile = async (
+  token: string,
+  username: string
+): Promise<T.ProfileShowPublic> => {
+  try {
+    const resp = await fetch(
+      `${WAVEBREAK_URL}/api/v1/profile/${username}`,
+      H.getJson(token)
+    );
+
+    return await resp.json();
+  } catch (error: any) {
+    return { error: error.message };
+  }
+};
+
 export const dumperIndex = async (token: string): Promise<T.DumperIndex> => {
   try {
     const resp = await fetch(`${WAVEBREAK_URL}/dumper`, H.getJson(token));
