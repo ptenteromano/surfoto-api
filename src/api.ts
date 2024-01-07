@@ -301,13 +301,12 @@ export const fetchFullProfile = async (
 };
 
 export const publicProfile = async (
-  token: string,
   username: string
 ): Promise<T.ProfileShowPublic> => {
   try {
     const resp = await fetch(
       `${WAVEBREAK_URL}/api/v1/profile/${username}`,
-      H.getJson(token)
+      H.getUnauth()
     );
 
     return await resp.json();
